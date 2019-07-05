@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red10\green16\blue31;\red255\green255\blue255;\red255\green255\blue255;
+\red0\green0\blue0;\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c3922\c7843\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c93333;}
+\margl1440\margr1440\vieww21940\viewh14080\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 CS637.    Homework 4.   Xiyao long \
+\
+The is a kubernetes distributed system adoption for the homework3(The movie ticketing system). In my homework 3, each client has its corresponding backend. As there are 5 clients, this make it a lot of 10 running pods in the  kubernetes deployment. The original source code for homework 3 is modified and compiled , then made into a image and pushed into Dockerhub. For running this application on kubernetes, I use 10 yaml file each specifying the launching a statefulset on a single pod. A separate file used for each pod is because I attempt to specify a client with a specific index such as 1, this client can be mapped to a backend node with yaml file specifying its running pod with index 1 as well.  There should be better solution. \
+\
+\
+\
+
+\b Contents: \
+
+\b0 	Source code is in ./src\
+	The application binary is at target/app.jar\
+\
+\
+
+\b Image creation (already completed)\
+
+\b0 	# create the docker image \
+	docker build -t xlong2/docker_image .\
+\
+	# push the docker image\
+	docker push xlong2/docker_image:latest\
+\
+\
+
+\b To run on kubernetes:\
+
+\b0 	#1. Start a googlecloud cluster ; make sure kubectl is installed.\
+	#2.  \
+	      cd ./kubernetes\
+	#3. launch the application \
+	     kubectl apply -f .\
+	#4. check  the pods\
+	     \cf2 \cb3 \expnd0\expndtw0\kerning0
+kubectl get pods\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+	     \cf2 \cb4 \expnd0\expndtw0\kerning0
+kubectl describe pod\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf5 \cb1 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf5 \
+
+\f0 \
+
+\b Modification of the hw3 ticketing system program:\
+
+\b0 	1. In the main function, it will get the environmental variables of the pod that runs the application. The variables are specified in the yaml file for the pod. If the yaml file has NODE_TYPE variable being \'93Client\'94 it will make a Client actor in that pod, else if the NODE_TYPE is \'93Backend_node\'94 it will make a Node actor(which is basically the ticketing system backend).  In the main function, we wait for some time before making of a Node but we do not wait before making a Client actor. This is intended to let clients get notified that pods with Node type actor are up in the actor system. \
+	2. Added a receive case for the client actors:  when the client actor get notified that a member is up on the cluster, it will check whether the new container is running an actor named as its corresponding backend. (Figure 2)\
+           3. Other standard modification, such as specify that the newly created actors join the seed nodes. And all the original actor classes has the new attribute the the actor system. \
+	\
+\
+Figure 1. 
+\f1 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic 2.tiff \width19700 \height10500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1 \cf6 \expnd0\expndtw0\kerning0
+\ul \ulc6 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf6 \
+Figure 2.  Inside  Client.java\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone {{\NeXTGraphic Pasted Graphic.tiff \width21340 \height6980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+
+\b  Kubernetes deployment:\
+
+\b0 	1. All pods communicate through port 2551. \
+         2. The two seed nodes use image built by someone else\
+         3. The other 10 pods use the image build by me. (The main application)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+
+\b Resources used:\
+
+\b0    1. The code is Figure 1 is large adopted from: {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/18012945/how-can-i-check-if-an-akka-actor-exists-akka-2-2"}}{\fldrslt \cf5 \expnd0\expndtw0\kerning0
+https://stackoverflow.com/questions/18012945/how-can-i-check-if-an-akka-actor-exists-akka-2-2}}\cf5 \expnd0\expndtw0\kerning0
+\
+    	This is from the effort in searching a solution to let a specific client identify its corresponding backend. \
+   2. Example project named as \'93akka-kubernetes-example\'94 in the {\field{\*\fldinst{HYPERLINK "https://github.com/saturnism/akka-kubernetes-example"}}{\fldrslt https://github.com/saturnism/akka-kubernetes-example}} \
+   3. Kubernetes documentation. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \ul \
+\
+
+\b \cf5 \ulnone Bugs and Reflection
+\b0 :\
+   \kerning1\expnd0\expndtw0  In retrospect; It might\cf0  be easier to add message mechanism between client and actors to help a client identify who is its corresponding actor. This can be more reliable than the method in Figure 2, which is essentially string matching between  actor address of the client and the backend node. The figure 2 method is not tested and the actual actor address need to be double checked. \
+}

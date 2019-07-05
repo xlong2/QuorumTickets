@@ -1,0 +1,13 @@
+Xiyao Long     Distributed System    Homework 1
+
+
+#Source code in folder:
+./src/main/java/com/example
+
+#Run:
+Run from itelliJ IDEA CE from LamportClock.java
+The extension part of the homework is coded in the same source files. 
+
+#Output:
+An example output with 5 processes is included in this directory named as clocks.pdf
+

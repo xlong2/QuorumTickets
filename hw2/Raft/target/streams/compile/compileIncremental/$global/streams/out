@@ -1,0 +1,28 @@
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial source changes: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	removed:Set(/Users/longxiyao/softwares/lamport-akka/src/main/java/com/lightbend/akka/sample/Printer.java, /Users/longxiyao/softwares/lamport-akka/src/main/java/com/example/ActorHierarchyExperiments.java, /Users/longxiyao/softwares/lamport-akka/src/main/java/com/lightbend/akka/sample/Greeter.java, /Users/longxiyao/softwares/lamport-akka/src/main/java/com/lightbend/akka/sample/PrintMyActorRefActor.java, /Users/longxiyao/softwares/lamport-akka/src/main/java/com/lightbend/akka/sample/AkkaQuickstart.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	added: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	modified: Set(/Users/longxiyao/softwares/lamport-akka/src/main/java/com/example/ResourceActor.java)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(com.example.ResourceActor.SomeMessage, com.example.ResourceActor, com.example.ResourceActor.ReleaseResource, com.example.ResourceActor.Aknowledgement, com.example.ResourceActor.RequestResource)[0m
+[0m[[0m[0mdebug[0m] [0m[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(com.example.ResourceActor.SomeMessage, com.example.ResourceActor, com.example.ResourceActor.ReleaseResource, com.example.ResourceActor.Aknowledgement, com.example.ResourceActor.RequestResource)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(/Users/longxiyao/softwares/lamport-akka/src/main/java/com/example/ResourceActor.java)[0m
+[0m[[0m[0minfo[0m] [0m[0mCompiling 1 Java source to /Users/longxiyao/softwares/lamport-akka/target/scala-2.12/classes ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mAttempting to call com.sun.tools.javac.api.JavacTool@5d3b1903 directly...[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava compilation took 1.012544381 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava analysis took 0.181719698 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mJava compilation + analysis took 1.200688341 s[0m
+[0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m
+[0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mPreviously invalidated, but (transitively) depend on new invalidations:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll newly invalidated classes after taking into account (previously) recompiled classes:Set()[0m
