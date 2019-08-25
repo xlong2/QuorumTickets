@@ -1,2 +1,0 @@
-install akka-discovery
-install "com.typesafe.akka" %% "akka-discovery" % "2.5.23"
