@@ -1,158 +1,118 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf600
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;\f2\froman\fcharset0 TimesNewRomanPSMT;
-\f3\fswiss\fcharset0 ArialMT;}
-{\colortbl;\red255\green255\blue255;\red52\green52\blue52;\red241\green241\blue241;\red0\green0\blue0;
-\red38\green38\blue38;\red204\green113\blue50;}
-{\*\expandedcolortbl;;\cssrgb\c26667\c26667\c26667;\cssrgb\c95686\c95686\c95686;\cssrgb\c0\c0\c0;
-\cssrgb\c20000\c20000\c20000;\cssrgb\c84314\c52157\c25490;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
-{\list\listtemplateid2\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid101\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid2}
-{\list\listtemplateid3\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid201\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid3}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}}
-\margl1440\margr1440\vieww28600\viewh9460\viewkind0
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red10\green16\blue31;\red255\green255\blue255;\red0\green0\blue0;
+\red0\green0\blue233;}
+{\*\expandedcolortbl;;\cssrgb\c3922\c7843\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c0\c0;
+\cssrgb\c0\c0\c93333;}
+\margl1440\margr1440\vieww16240\viewh14080\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 CS 647.   HW 3     Xiyao Long \
-\
-\
-Run: \
-\
-     	Use IntelliJ to run the program, the main function is in DiningHakkersOnFsm.java\
-	The .java files are all in ./src/main/java/sample.fsm\
-\
-\
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\f0\b\fs24 \cf0 CS637.    Homework 4.   Xiyao long \
 
-\b \cf0 Update on the Raft system:\
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\b0 \cf0 	Fixed possible bugs in the leader election. In program running, a leader is generally selected on the first term. This is not a bug. \
-\
-	Log implementation is attempted using java serialization and logger with file handler. The serialization should be better because it allows latter change of log entries more easily. In the submitted version both logging method are commented out because it may break the system. \
-\
-	The function of applying to state machine is implemented. \
-	\
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\b \cf0 On top of the raft system, there are several constraints in implementing the ticketing system:
 \b0 \
-	1. The # of available tickets never go under zero:\
-	    The ticket sell write should only be applied to the leader, this indicates if the number of tickets after the write is below zero, then such request should be rejected, else if it\'92s above zero, then write can be proceed and an acknowledgment message should be sent back to the client to confirm that the purchase is done. \
-\
-	2. The consistent read/write should be as not very frequent to give good performance to the system.\
-	Any frontend get the number of tickets by quering(message exchange) its corresponded node. The result is an unstable read, meaning it's the result of applying both committed and uncommited log entries to the state machine of any node.\
-\
+The is a kubernetes distributed system adoption for the homework3(The movie ticketing system). In my homework 3, each client has its corresponding backend. As there are 5 clients, this make it a lot of 10 running pods in the  kubernetes deployment. The original source code for homework 3 is modified and compiled , then made into a image and pushed into Dockerhub. For running this application on kubernetes, I use 10 yaml file each specifying the launching a statefulset on a single pod. A separate file used for each pod is because I attempt to specify a client with a specific index such as 1, this client can be mapped to a backend node with yaml file specifying its running pod with index 1 as well. \
 \
 \
 \
 
-\b Ticketing System Implementation:\
+\b Contents: \
+
+\b0 	Source code is in ./src/main/java/com.example\
+	Config file in  ./src/main/resources/application.config\
+	The yaml files for launching kubernetes is in ./kubernetes\
+	The application binary is at ./target/app.jar\
+\
+\
+
+\b Image creation (already completed)\
+
+\b0 	# create the docker image \
+	docker build -t xlong2/docker_image .\
+\
+	# push the docker image\
+	docker push xlong2/docker_image:latest\
+\
+\
+
+\b To run on kubernetes:\
+
+\b0 	#1. Start a googlecloud cluster ; make sure kubectl is installed.\
+	#2.  \
+	      cd ./kubernetes\
+	#3. launch the application \
+	     kubectl apply -f .\
+	#4. check  the pods\
+	     \cf2 \cb3 \expnd0\expndtw0\kerning0
+kubectl get pods\cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\cf2 \cb3 \expnd0\expndtw0\kerning0
+	    kubectl logs -f $pod_id\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b0 \cf0 	Each frontend has a corresponding backend node. It send its unstable read requests and consistent write request to its backend node. The backend node will return its statemachine upon read request, but will reroute the write request to the raft leader. \
-\
-	The leader, upon receiving the write request, will compare the requested ticket number to the ticket remaining in its statemachine. If there's enough ticket, it will send back an acknowledgement message to the corresponding frontend, else it will send back a failure message notifying there's not enough ticket left. \
-\
+\f1 \cf4 \cb1 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf4 \
+
+\f0 \
+
+\b Modification of the hw3 ticketing system program:\
+
+\b0 	1. In the main function, it will get the environmental variables of the pod that runs the application. The variables are specified in the yaml file for the pod. If the yaml file has NODE_TYPE variable being \'93Client\'94 it will make a Client actor in that pod, else if the NODE_TYPE is \'93Backend_node\'94 it will make a Node actor(which is basically the ticketing system backend).  In the main function, we wait for some time before making of a Node but we do not wait before making a Client actor. This is intended to let clients get notified that pods with Node type actor are up in the actor system. (Figure 1)\
+	2. Added a receive case for the client actors:  when the client actor get notified that a member is up on the cluster, it will check whether the new container is running an actor named as its corresponding backend. (Figure 2)\
+           3. Other standard modification are present such as specify that the newly created actors will join the seed nodes. The previous actor selection path is changed from \'93/user/*\'94 to \'93aka://ClusterSystem@*:2551/user/*\'94.(Figure 3)  And all the original actor classes has a new attribute \'97 the actor system. \
 	\
-	To reduce the number of consistent write operation, each client frontend will reserve a certain number of tickets(20) from the backend nodes leader whenever a customer order n tickets exceeding the number of reserved tickets. Any buy request will be process inside the client frontend without consistent write operation unitll is message to the backend node leader is necessary. \
 \
-\
+Figure 1. 
+\f1 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b \cf0 Result and Bugs:\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\f0 \cf0 \kerning1\expnd0\expndtw0 {{\NeXTGraphic Pasted Graphic 2.tiff \width19700 \height10500 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b0 \cf0 	Some node seem to do not apply entry to stjatemachine successfully while the other nodes have the entries applied(Figure 2).\
-\
-	The commit index sometimes do not update and always remain zero, However when I rerun the commit indexes update (Figure 1). The success rate is probably 2 or 3 out of 10 times. \
-\
-	The application can write to the leader and change its available number of tickets. The number never goes under zero.(Figure 3 & 4). The Client also would buy ticket without giving writes to backend nodes, but just from the reserved 20 tickets upon each leader write request(Figure 3).\
-\
-\
-Figure 1.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 {{\NeXTGraphic Pasted Graphic 3.tiff \width10460 \height6240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\
-Figure 2.\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 {{\NeXTGraphic Pasted Graphic 2.tiff \width11160 \height1600 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-\
-Figure 3. \
+\f1 \cf5 \expnd0\expndtw0\kerning0
+\ul \ulc5 \
+\pard\pardeftab720\sl280\partightenfactor0
+\cf5 \
+Figure 2.  Inside  Client.java\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 {{\NeXTGraphic Pasted Graphic.tiff \width13940 \height9240 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone {{\NeXTGraphic Pasted Graphic.tiff \width21340 \height6980 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
 \
-Figure 4. \
-{{\NeXTGraphic Pasted Graphic 1.tiff \width13020 \height7920 \appleattachmentpadding0 \appleembedtype0 \appleaqc
+\
+Figure 3:  the actor selection method is changed to reflect that the actor system is now a cluster. \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 {{\NeXTGraphic 1__#$!@%!#__Pasted Graphic.tiff \width16320 \height820 \appleattachmentpadding0 \appleembedtype0 \appleaqc
 }¬}\
-\
-\
-\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
 \
 
-\b Reflection
+\b  Kubernetes deployment:\
+
+\b0 	1. All pods communicate through port 2551. \
+         2. The two seed nodes use image built by someone else\
+         3. The other 10 pods use the image build by me. (The main application)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \
+
+\b Resources used:\
+
+\b0    1. The code is Figure 1 is large adopted from: {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/18012945/how-can-i-check-if-an-akka-actor-exists-akka-2-2"}}{\fldrslt \cf4 \expnd0\expndtw0\kerning0
+https://stackoverflow.com/questions/18012945/how-can-i-check-if-an-akka-actor-exists-akka-2-2}}\cf4 \expnd0\expndtw0\kerning0
+\
+    	This is from the effort in searching a solution to let a specific client identify its corresponding backend. \
+   2. Example project named as \'93akka-kubernetes-example\'94 in the {\field{\*\fldinst{HYPERLINK "https://github.com/saturnism/akka-kubernetes-example"}}{\fldrslt https://github.com/saturnism/akka-kubernetes-example}} \
+   3. Kubernetes documentation. \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf5 \ul \
+\
+
+\b \cf4 \ulnone Bugs and Reflection
 \b0 :\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
-\ls1\ilvl0
-\f1\fs26 \cf2 \cb3 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-How does what you've implemented compare to how you might implement similar functionality on top of Bayou? What parts of this would become easier on Bayou (e.g., with custom conflict resolvers), and what might become harder?\cb1 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
-If this application is implemented on top of Bayou, as Bayou is a weakly consistent protocol. However, I can still implement the system in a similar way compared to raft. The read access will still be \'93unstable\'94 reads and the values are those returned from any backend server node the frontend communicates.  We can not enforce a consistent write operation as we don\'92t really know how long can we wait until the system reach final consistency. However, this is not much of a problem if we only allow non-primary write operation when ticket number is greater than certain threshold, chosen based on our understanding of how the system behaves in terms of how the actual available tickets changes.  The Bayou protocol would resolve any discrepancies of such write operations between different backend nodes.\
-\
-When the unstable read is under such threshold, the frontend will communicates with only the primary server, so that any of its write operation will be committed immediately and reduce the chance of letting the number goes below zero.\
-\
-\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
-\ls2\ilvl0
-\f1\fs26 \cf2 \cb3 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-What additional guarantees does this approach have compared to implementing the functionality on top of CRDTs like the bounded counter CRDT? What advantages does having a single log bring over using CRDTs? (Note: you don't have to read that paper to answer this question.)\
-\pard\tx720\pardeftab720\sl300\partightenfactor0
-\cf2 \cb1 \
-
-\fs24 \cf4 The bounded counter CRDT enforces the number of operations/some threshold on the value before synchronizing the value with other servers.  But Bayou allow some global invariant as constraint which is not possible for CRDT.(1) As for the application we implemented, it enforce consistent write that is not the feature of CRDT, the remaining ticket will never go under zero. \
-
-\fs26 \cf2 \
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl300\partightenfactor0
-\ls3\ilvl0\cf2 \cb3 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
-What are the disadvantages of using the approach taken here, compared to using CRDTs? What sort of reliability advantages might CRDTs bring to this system, that we've given up by using a single log?\
-\pard\tx720\pardeftab720\sl300\partightenfactor0
-\cf2 \
-\pard\tx720\pardeftab720\sl300\partightenfactor0
-\cf2 \cb1 \
-
-\fs24 \cf4 Using raft system and only write to the leader is in a way restricting  the number of write request the system can process in a limited time. If the client requests amount is large, it can cause latency problem.\
-
-\fs26 \
-\cf2 \
-\
-Resources:\
-	Akka documentation java code/ tutorial. \
-\
-\pard\tx720\pardeftab720\sl300\partightenfactor0
-
-\b \cf2 Reference
-\b0 \
-\pard\pardeftab720\sl360\partightenfactor0
-
-\f0\fs24 \cf5 1. Kleppmann, et al. \'93A Conflict-Free Replicated JSON Datatype.\'94\'a0ArXiv.org, 15 Aug. 2017, arxiv.org/abs/1608.03960v3.\
-
-\f2\fs32 \
-\
-\pard\pardeftab720\sl280\partightenfactor0
-
-\f3\fs24 \cf6 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-
-\f0 \cf0 \kerning1\expnd0\expndtw0 \
-\
+     In the log of a kubernetes pod: \
+              error message: application.conf @ jar:file:/app/app.jar!/application.conf: 15-35: No configuration setting found for key 'akka.version\'92 \
+   \kerning1\expnd0\expndtw0  In retrospect; It might\cf0  be easier to add message mechanism between client and actors to help a client identify who is its corresponding actor. This can be more reliable than the method in Figure 2, which is essentially string matching between  actor address of the client and the backend node. The figure 2 method is not tested and the actual actor address need to be double checked. \
 }

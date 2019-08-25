@@ -24,7 +24,7 @@ public class Client extends AbstractActor {
             a = "just to make clients alive";
         }}
 
-
+    public Cancellable aCancellable;
     public int availableTicNum ;
     ArrayList<BuyTickRequest> messageList;
     private static long messageCounter ;
@@ -58,12 +58,14 @@ public class Client extends AbstractActor {
         public String message;
         public int requestedTick;    // the number to ticket to buy
        public  ActorRef sender;
-        public RawMessage(String mess, int ticketNum2Buy, ActorRef theSender) {
+       public int ticketReserved;
+        public RawMessage(String mess, int ticketNum2Buy, ActorRef theSender, int resNum) {
 
             requestedTick = ticketNum2Buy; //
             ++messageCounter;
             sender = theSender;
             message = "ClientMessage" + messageCounter;
+            ticketReserved = resNum;
         }
 
         @Override
@@ -100,8 +102,8 @@ public class Client extends AbstractActor {
 
                             // simulate when people buy tickets in random periods
 
-                            context().system().scheduler()
-                                     .schedule(Duration.ofMillis(8000), Duration.ofMillis(200),
+                             aCancellable = context().system().scheduler()
+                                     .schedule(Duration.ofMillis(8000), Duration.ofMillis(100),
                                              new Runnable() {
                                                  @Override
                                                  public void run() {
@@ -128,7 +130,7 @@ public class Client extends AbstractActor {
                                 //selection.tell(new RawMessage("a message", 12 ), getSelf());
                                 // client Broadcast the RawMessage to ensure that a a leader gets such message
                                 //return the send message information.
-                                System.out.println(String.format("****** The ticket number remaining from unstable reads is %d ****** ", availableTicNum));
+                                System.out.println(String.format("****** The ticket number remaining from unstable reads is %d  from ****** ", availableTicNum));
                             
                         }
 
@@ -142,19 +144,32 @@ public class Client extends AbstractActor {
                                 messageList.add(m);// add the
                             }else{
                                 System.out.println(String.format("The ticket number is not enough, client is requesting tickets from node leader "));
-                             //System.out.println(String.format("********&&&&&&&&&&&   the availableTicNum number is %d ", availableTicNum));
-                                //if(  availableTicNum< 100){
 
+                               // if(  availableTicNum< 100){
+                                 //   RawMessage aRequest = new RawMessage("theMes", m.tickToBuy, getSelf(),m.tickToBuy );
+                                  //  backendNode.tell(aRequest, getSelf()); // send messages to the corresponding backend
                                 //}else {
-                                    RawMessage aRequest = new RawMessage("theMes", 20, getSelf());
+                                System.out.println(" the availableTicNum "+availableTicNum);
+                                    RawMessage aRequest = new RawMessage("theMes", 20, getSelf(), m.tickToBuy);
                                     backendNode.tell(aRequest, getSelf()); // send messages to the corresponding backend
+
+
+
                                 //}
                                 }
                         })
                 .match(AcknowledgeWriteProcedure.class,  //
                         m->{
-                            reservedTicNum =  reservedTicNum +  m.ticketNumReserved;  // the number of reserved Tic Num in the client node
+                             messageList.add(new BuyTickRequest(getSelf(),m.ticketReservedByMotivator));
+                             reservedTicNum =  reservedTicNum +  m.ticketNumReserved- m.ticketReservedByMotivator;  // the number of reserved Tic Num in the client node
                             // add the reservedTicNum  to the ;
+                        }
+
+                )
+                .match(FailureMessage.class,
+                        m->{
+                            System.out.println("System does not have that many tickets!!");
+                            aCancellable.cancel();
                         }
 
                 )

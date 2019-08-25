@@ -11,16 +11,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/akka_sample_fsm_java$DiningHakkersOnFsm.ic" NAME="DiningHakkersOnFsm Coverage Results" MODIFIED="1559264124972" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/akka_sample_fsm_java$DiningHakkersOnFsm.ic" NAME="DiningHakkersOnFsm Coverage Results" MODIFIED="1559315041472" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.fsm.*</FILTER>
     </SUITE>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="DiningHakkersOnFsm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DiningHakkersOnFsm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/DiningHakkersOnFsm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-62">
+            <state relative-caret-position="376">
               <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -32,14 +32,10 @@
       <file leaf-file-name="Client.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1054">
-              <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
+            <state relative-caret-position="1800">
+              <caret line="132" column="158" selection-start-line="132" selection-start-column="158" selection-end-line="132" selection-end-column="158" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#439#440#0" expanded="true" />
-                <element signature="e#495#496#0" expanded="true" />
-                <element signature="e#1684#1685#0" expanded="true" />
-                <element signature="e#1722#1723#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -66,7 +62,7 @@
       <file leaf-file-name="ResourceActor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../hw1/lamport-akka/src/main/java/com/example/ResourceActor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
+            <state relative-caret-position="3690">
               <caret line="273" selection-start-line="273" selection-end-line="273" />
             </state>
           </provider>
@@ -84,7 +80,7 @@
       <file leaf-file-name="Entry.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Entry.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="906">
+            <state relative-caret-position="975">
               <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
               <folding>
                 <element signature="e#1086#1087#0" expanded="true" />
@@ -101,14 +97,10 @@
       <file leaf-file-name="Messages.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Messages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+            <state relative-caret-position="780">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#884#885#0" expanded="true" />
-                <element signature="e#924#925#0" expanded="true" />
-                <element signature="e#1120#1121#0" expanded="true" />
-                <element signature="e#1167#1168#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -117,7 +109,7 @@
       <file leaf-file-name="StateMachine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/StateMachine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
+            <state relative-caret-position="150">
               <caret line="14" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#134#135#0" expanded="true" />
@@ -131,35 +123,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NodeOnFsm.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NodeOnFsm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/NodeOnFsm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7650">
-              <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+            <state relative-caret-position="2190">
+              <caret line="177" column="14" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4169#4188#0" expanded="true" />
-                <element signature="e#4557#4576#0" expanded="true" />
-                <element signature="e#8446#8447#0" expanded="true" />
-                <element signature="e#8499#8500#0" expanded="true" />
-                <element signature="e#16356#16357#0" expanded="true" />
-                <element signature="e#16401#16402#0" expanded="true" />
-                <element signature="e#16449#16450#0" expanded="true" />
-                <element signature="e#16495#16496#0" expanded="true" />
-                <element signature="e#16532#16533#0" expanded="true" />
-                <element signature="e#16577#16578#0" expanded="true" />
-                <element signature="e#16805#16806#0" expanded="true" />
-                <element signature="e#16850#16851#0" expanded="true" />
-                <element signature="e#19088#19089#0" expanded="true" />
-                <element signature="e#19130#19131#0" expanded="true" />
-                <element signature="e#19175#19176#0" expanded="true" />
-                <element signature="e#19215#19216#0" expanded="true" />
-                <element signature="e#19254#19255#0" expanded="true" />
-                <element signature="e#19297#19298#0" expanded="true" />
-                <element signature="e#19330#19331#0" expanded="true" />
-                <element signature="e#19396#19397#0" expanded="true" />
-                <element signature="e#19457#19458#0" expanded="true" />
-                <element signature="e#19503#19504#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -177,36 +147,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>handleValidateMatchingResult</find>
-      <find>statemachine</find>
-      <find>followerReceiveAppendEntryRPC</find>
-      <find>UnstableRead</find>
-      <find>UnstableReadRequest</find>
-      <find>leaderReturnCopyOfStateMachine</find>
-      <find>writeMachine</find>
-      <find>unstablereadrequest</find>
-      <find>receiv</find>
-      <find>AppendEntryRPC</find>
-      <find>raw</find>
-      <find>Rawmessage</find>
       <find>ticketReservedForRequestMotivator</find>
       <find>d</find>
       <find>acknow</find>
       <find>new RawMessage</find>
       <find>ReturnCopyOfStateMachine</find>
       <find>cket number is not enoug</find>
-      <find>the remaining ticket number is client i</find>
       <find>leaderReceiveConsistentWriteRequest</find>
       <find>ave that many ticket</find>
       <find>Fai</find>
-      <find>derReceiveConsistentWriteReques</find>
-      <find>apply</find>
-      <find>*****&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;</find>
-      <find>***&amp;&amp;&amp;&amp;&amp;&amp;&amp;&amp;</find>
-      <find>RawMessage</find>
       <find>AcknowledgeWriteProcedure</find>
-      <find>logMessage</find>
-      <find>CorrespondingNode</find>
+      <find>RawMessage</find>
+      <find>commit</find>
+      <find>cket number is not enough, client is requesting ti</find>
+      <find>availableTicNum</find>
+      <find>the the remaining ticket number is client</find>
+      <find>the remaining ticket number is client i</find>
+      <find>applytostat</find>
+      <find>leaderReceiveAcknowledgementRPC</find>
+      <find>checkNforCommitIndex</find>
+      <find>allServerRule</find>
+      <find>applyLogRegardless</find>
+      <find>serializ</find>
+      <find>ObjectOutputStream</find>
+      <find>System does not have that many tickSystem does not have that many tick</find>
+      <find>filehand</find>
+      <find>co</find>
+      <find>messagesen</find>
+      <find>remaining</find>
+      <find>applyToStateMachine</find>
+      <find>copyof</find>
     </findStrings>
     <replaceStrings>
       <replace>Client</replace>
@@ -229,9 +199,9 @@
       <replace>node term</replace>
       <replace>rerouteClientMessage</replace>
       <replace>serverLog</replace>
-      <replace>ReturnCopyOfStateMachine</replace>
       <replace>ticketNumTaken</replace>
       <replace>UpdateBackendNode</replace>
+      <replace>ReturnCopyOfStateMachine</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/src/main/java/sample/fsm</dir>
@@ -251,15 +221,15 @@
         <option value="$PROJECT_DIR$/src/main/java/sample/fsm/StateMachine.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/fsm/DiningHakkersOnFsm.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/fsm/Entry.java" />
+        <option value="$PROJECT_DIR$/src/main/java/sample/fsm/Client.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/fsm/Messages.java" />
         <option value="$PROJECT_DIR$/src/main/java/sample/fsm/NodeOnFsm.java" />
-        <option value="$PROJECT_DIR$/src/main/java/sample/fsm/Client.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="153" />
-    <option name="y" value="259" />
+    <option name="x" value="512" />
+    <option name="y" value="471" />
     <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
@@ -268,35 +238,34 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="akka-sample-fsm-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs647 HW3  Xiyao Long" type="462c0819:PsiDirectoryNode" />
+              <item name="cs647 HW3  Xiyao Long copy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="akka-sample-fsm-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs647 HW3  Xiyao Long" type="462c0819:PsiDirectoryNode" />
+              <item name="cs647 HW3  Xiyao Long copy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="akka-sample-fsm-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs647 HW3  Xiyao Long" type="462c0819:PsiDirectoryNode" />
+              <item name="cs647 HW3  Xiyao Long copy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="akka-sample-fsm-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs647 HW3  Xiyao Long" type="462c0819:PsiDirectoryNode" />
+              <item name="cs647 HW3  Xiyao Long copy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="akka-sample-fsm-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cs647 HW3  Xiyao Long" type="462c0819:PsiDirectoryNode" />
+              <item name="cs647 HW3  Xiyao Long copy" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
@@ -331,6 +300,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -444,33 +414,33 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="153" y="259" width="1440" height="797" extended-state="0" />
+    <frame x="512" y="471" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.6092664" weight="0.32428572" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49213162" weight="0.2642857" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.32474965" side_tool="true" visible="true" weight="0.5114286" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.11158799" side_tool="true" visible="true" weight="0.35285714" />
       <window_info anchor="right" id="Maven Projects" order="4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.888412" weight="0.35285714" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.67525035" weight="0.5114286" />
-      <window_info anchor="right" id="Coverage" sideWeight="0.50292397" side_tool="true" visible="true" weight="0.04434907" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32957748" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24248926" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.84247106" weight="0.32857144" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2532189" />
       <window_info id="Learn" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.49707603" visible="true" weight="0.04434907" />
+      <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4965278" visible="true" weight="0.04434907" />
       <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="6" sideWeight="0.5034722" side_tool="true" visible="true" weight="0.04434907" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49499285" weight="0.26323318" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.84247106" weight="0.32857144" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -481,13 +451,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/fsm/Client.java</url>
-          <line>149</line>
+          <line>153</line>
           <properties />
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sample/fsm/NodeOnFsm.java</url>
-          <line>904</line>
+          <line>941</line>
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
@@ -633,19 +603,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user_file.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/default_file.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/MessagesTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/user_file.txt" />
+    <entry file="file://$PROJECT_DIR$/default_file.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/MessagesTest.java" />
     <entry file="jar://$MAVEN_REPOSITORY$/com/typesafe/akka/akka-actor_2.12/2.5.22/akka-actor_2.12-2.5.22.jar!/akka/japi/pf/FI.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -655,7 +615,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../hw1/lamport-akka/src/main/java/com/example/ResourceActor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
+        <state relative-caret-position="3690">
           <caret line="273" selection-start-line="273" selection-end-line="273" />
         </state>
       </provider>
@@ -667,21 +627,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/StateMachine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#134#135#0" expanded="true" />
-            <element signature="e#170#171#0" expanded="true" />
-            <element signature="e#201#202#0" expanded="true" />
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#286#287#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/ARandomClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -689,37 +634,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="144" column="31" selection-start-line="144" selection-start-column="31" selection-end-line="144" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
-            <element signature="e#495#496#0" expanded="true" />
-            <element signature="e#1684#1685#0" expanded="true" />
-            <element signature="e#1722#1723#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Messages.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#884#885#0" expanded="true" />
-            <element signature="e#924#925#0" expanded="true" />
-            <element signature="e#1120#1121#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Entry.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="906">
+        <state relative-caret-position="975">
           <caret line="71" column="40" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
           <folding>
             <element signature="e#1086#1087#0" expanded="true" />
@@ -732,16 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/DiningHakkersOnFsm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-62">
-          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Situation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -749,34 +656,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/NodeOnFsm.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/StateMachine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7650">
-          <caret line="104" column="71" selection-start-line="104" selection-start-column="71" selection-end-line="104" selection-end-column="71" />
+        <state relative-caret-position="150">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#134#135#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+            <element signature="e#201#202#0" expanded="true" />
+            <element signature="e#228#229#0" expanded="true" />
+            <element signature="e#259#260#0" expanded="true" />
+            <element signature="e#286#287#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1800">
+          <caret line="132" column="158" selection-start-line="132" selection-start-column="158" selection-end-line="132" selection-end-column="158" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4169#4188#0" expanded="true" />
-            <element signature="e#4557#4576#0" expanded="true" />
-            <element signature="e#8446#8447#0" expanded="true" />
-            <element signature="e#8499#8500#0" expanded="true" />
-            <element signature="e#16356#16357#0" expanded="true" />
-            <element signature="e#16401#16402#0" expanded="true" />
-            <element signature="e#16449#16450#0" expanded="true" />
-            <element signature="e#16495#16496#0" expanded="true" />
-            <element signature="e#16532#16533#0" expanded="true" />
-            <element signature="e#16577#16578#0" expanded="true" />
-            <element signature="e#16805#16806#0" expanded="true" />
-            <element signature="e#16850#16851#0" expanded="true" />
-            <element signature="e#19088#19089#0" expanded="true" />
-            <element signature="e#19130#19131#0" expanded="true" />
-            <element signature="e#19175#19176#0" expanded="true" />
-            <element signature="e#19215#19216#0" expanded="true" />
-            <element signature="e#19254#19255#0" expanded="true" />
-            <element signature="e#19297#19298#0" expanded="true" />
-            <element signature="e#19330#19331#0" expanded="true" />
-            <element signature="e#19396#19397#0" expanded="true" />
-            <element signature="e#19457#19458#0" expanded="true" />
-            <element signature="e#19503#19504#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/Messages.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/NodeOnFsm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2190">
+          <caret line="177" column="14" selection-start-line="177" selection-start-column="14" selection-end-line="177" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/sample/fsm/DiningHakkersOnFsm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="50" column="11" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -810,6 +740,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>Python 2.7 (pythonProject) interpreter library</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -838,7 +769,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
@@ -862,7 +792,7 @@
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.48045978" />
+                <option value="0.39839572" />
               </list>
             </option>
           </splitter-proportions>

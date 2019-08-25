@@ -15,6 +15,6 @@
 FROM java:8
 ENTRYPOINT ["/usr/bin/java", "-jar", "/app/app.jar"]
 
-ADD target/lib/* /app/lib/
+ADD ./lib/* /app/lib/
 ADD target/app.jar /app/app.jar
 

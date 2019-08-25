@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/akka-sample-fsm-java.iml" filepath="$PROJECT_DIR$/akka-sample-fsm-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/akka-example.iml" filepath="$PROJECT_DIR$/akka-example.iml" />
     </modules>
   </component>
 </project>

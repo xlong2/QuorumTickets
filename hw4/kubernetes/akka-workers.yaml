@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: akka-worker
-        image: saturnism/akka-cluster-example
+        image: xlong2/docker_image:latest
         env:
         - name: SEED_NODES
           value: akka-seed-0.akka-seed,akka-seed-1.akka-seed

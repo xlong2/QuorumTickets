@@ -43,17 +43,24 @@ public class Messages {
 
     public static final class  AcknowledgeWriteProcedure{
         int ticketNumReserved;
-
-        public AcknowledgeWriteProcedure(int num){
+        int ticketReservedByMotivator;
+        public AcknowledgeWriteProcedure(int num, int num1){
             ticketNumReserved = num;
+            ticketReservedByMotivator = num1;
         }
 
     }
 
+    public static final class FailureMessage{
+        public FailureMessage(){
+
+        }
+    }
     // make a CopyOfStateMachine message  when receive a client requesting a copy of the statemachine .
     public static final class CopyOfStateMachine extends  SomeMessage {
         int ticketNum;
         int ticketNumCommitted;
+
         public CopyOfStateMachine(NodeOnFsm.NodeData a) {
             super(a); // it does not matter which actor this heartBeatRPC got sent to
             ticketNumCommitted = a.aMachine.tickeNumCommitted;
@@ -214,15 +221,7 @@ public class Messages {
     }
 
 
-    public static class FailureMessage extends SomeMessage{
-        String message;
-        ActorRef sender;
 
-        public FailureMessage(NodeOnFsm.NodeData a){
-        message = "Failure";
-        sender =a.ownerActorRef;
-        }
-    }
 
 
 

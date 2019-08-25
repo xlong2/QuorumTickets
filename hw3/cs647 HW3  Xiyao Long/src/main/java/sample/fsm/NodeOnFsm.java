@@ -4,6 +4,9 @@ package sample.fsm;
 //Duration duration = new FiniteDuration(100, MILLISECONDS);
 import java.io.*;
 import akka.actor.ActorRef;
+import java.util.logging.Logger;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 import akka.actor.Props;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -73,7 +76,8 @@ public class NodeOnFsm {
         int commitIndex; //index of highest serverLog entry known to be committed (initialized to 0, increasesmonotonically)
         LoggingAdapter logHandle;
         public  StateMachine aMachine;
-
+        public Logger logger ;
+        public FileHandler fh;
 
         public class StateMachine {
             int ticketNum;
@@ -160,11 +164,18 @@ public class NodeOnFsm {
             // timeOut = ThreadLocalRandom.current().nextInt(150, 300);
 
             ownerActorRef = dataOwner;
-
+          //  Logger logger = Logger.getLogger("MyLog");
             voteCount = 0; //the number of votes for become a leader a node received is initially zero
-            logHandle = logHandle;
+           // logHandle = logHandle;
             currentTerm = 0;
             commitIndex = 0;
+            // This block configure the logger with handler and formatter
+            //try{
+            //fh = new FileHandler(ownerActorRef.toString().split("/")[4] + "_file.txt"
+            //);}catch(Exception e){e.printStackTrace();}
+            //logger.addHandler(fh);
+            //SimpleFormatter formatter = new SimpleFormatter();
+            //fh.setFormatter(formatter);
             lastApplied =0;
             totalNumberMember = nodeNum;   // set the total number of nodes
             currentRole = Roles.Follower;
@@ -191,9 +202,35 @@ public class NodeOnFsm {
         private void allServerRule() {
             System.out.println("in allServerRule");
 
+
+
+            /*
+            try {
+
+
+
+                // the following statement is used to log any messages
+               // logger.info("My first log");
+                int initialLastApplied = lastApplied;
+                int templastApplied = lastApplied;
+                while(templastApplied< commitIndex) {   // apply to stateMachine uptil the commit index
+
+                    templastApplied = templastApplied + 1;
+                   // ArrayList<Entry> alist = new ArrayList<> (serverLog.subList(lastApplied, lastApplied));
+                   logger.info( String.format("%d %s",serverLog.get(templastApplied).ticketNumTaken,  serverLog.get(templastApplied).toString()));
+                   // out.writeObject(alist);
+                    //applyToStateMachine(lastApplied);  // apply the entry to state machine uptill the commit index
+
+                }
+
+            } catch (SecurityException e) {
+                e.printStackTrace();
+            }
+*/
+
             try {
                 ObjectOutputStream out;
-                String fileName = ownerActorRef.toString().split("/")[2] + "_file.txt";
+                String fileName = ownerActorRef.toString().split("/")[4] + "_file.txt";
                 System.out.println(ownerActorRef.toString());
                 File f = new File(fileName);
                 if(f.exists() && !f.isDirectory()) {
@@ -228,11 +265,11 @@ public class NodeOnFsm {
                 ioe.printStackTrace();
             }
 
+
             //System.out.println("at line 231 in allServerRule ");
             while(lastApplied< commitIndex) {   // apply to stateMachine uptil the commit index
-                System.out.println("in line 233");
+                System.out.println(String.format("Comparing lastApplied %d to commitIndex %d", lastApplied, commitIndex));
                 lastApplied = lastApplied + 1;
-                ArrayList<Entry> alist = new ArrayList<> (serverLog.subList(lastApplied, lastApplied));
                 applyToStateMachine(lastApplied);  // apply the entry to state machine uptill the commit index
 
             }
@@ -308,7 +345,7 @@ public class NodeOnFsm {
 
 
         public void handleValidateMatchingResult(boolean validateMatchingResult, AppendEntryRPC mes) {
-
+            System.out.println("Inside line 311");
             if (validateMatchingResult) { // if the preceding term matches
                 System.out.println("line 194");
                 if (serverLog.isEmpty()) {
@@ -995,12 +1032,12 @@ public class NodeOnFsm {
                // requestedTick is 2, currentTerm is 3,  serverLog.size is 4
                // add the entry into the serverlog
                a.checkLastLogIndexVersusNextIndexAndSendLogs(a.ownerActorRef); // check and see if to send AppendEntryRPC
-               AcknowledgeWriteProcedure aMes =  new AcknowledgeWriteProcedure(b.requestedTick);
+               AcknowledgeWriteProcedure aMes =  new AcknowledgeWriteProcedure(b.requestedTick, b.ticketReserved);
                b.sender.tell(aMes, getSelf());   // send the acknowledgement message to the sender.
            }else{
                // because the number of ticket is not enough anymore, so just send back the
                System.out.println("the requested ticket number is larger than the available ticketnum, therefore it");
-               FailureMessage aFailMes = new FailureMessage(a);
+               FailureMessage aFailMes = new FailureMessage();
                // aFailMes
                b.sender.tell(aFailMes,getSelf()); // send the failure message to original resource requester
            }
@@ -1012,11 +1049,10 @@ public class NodeOnFsm {
 
         }
 
-        public FSM.State<Roles, NodeData>  leaderReturnCopyOfStateMachine(NodeData a, Client.UnstableReadRequest b ){
+        public FSM.State<Roles, NodeData>  ReturnCopyOfStateMachine(NodeData a, Client.UnstableReadRequest b ){
             // return a copy of statemachine  to the
             CopyOfStateMachine acopy = a.aMachine.writeMachine(a,b);
-            // send CopyOfStateMachine to a copy
-
+            // return the copy of 
             b.theSender.tell(acopy,getSelf()); // send the CopyOfStateMachine to the sender.
             return stay().using(a);
 
@@ -1073,7 +1109,7 @@ public class NodeOnFsm {
                             event(Client.RawMessage.class,
                                     (theMessage, data) -> rerouteClientMessage(data, Client.RawMessage.class.cast(theMessage))).
                             event( Client.UnstableReadRequest.class,
-                                    (tehMessage,data) ->  leaderReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
+                                    (tehMessage,data) ->  ReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
                             )
 
             );
@@ -1092,11 +1128,11 @@ public class NodeOnFsm {
                             event(TermMessage.class,
                                     (theMessage, data) -> followerReceiveTermMessage(data, TermMessage.class.cast(theMessage))
                             ).
-
+                           
                             event(Client.RawMessage.class,
                                     (theMessage, data) -> rerouteClientMessage(data, Client.RawMessage.class.cast(theMessage))).
                             event( Client.UnstableReadRequest.class,
-                                    (tehMessage,data) ->  leaderReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
+                                    (tehMessage,data) ->  ReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
                             )
                             //.
                           //  event(VoteMessage.class,
@@ -1123,7 +1159,7 @@ public class NodeOnFsm {
                             event(TermMessage.class,
                                     (theMessage, data) -> leaderReceiveTermMessage(data, TermMessage.class.cast(theMessage))).
                             event( Client.UnstableReadRequest.class,
-                                    (tehMessage,data) ->  leaderReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
+                                    (tehMessage,data) ->  ReturnCopyOfStateMachine(data, Client.UnstableReadRequest.class.cast(tehMessage))
                             )
                             // if you ConsistentWriteRequest
             );

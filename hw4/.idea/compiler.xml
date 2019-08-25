@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="akka-sample-fsm-java" />
+        <module name="akka-example" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="akka-sample-fsm-java" target="1.8" />
+      <module name="akka-example" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
