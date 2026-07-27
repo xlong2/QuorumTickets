@@ -1,0 +1,82 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: raft-ticketing
+  labels:
+    app.kubernetes.io/name: raft-ticketing
+spec:
+  clusterIP: None
+  publishNotReadyAddresses: true
+  selector:
+    app.kubernetes.io/name: raft-ticketing
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: raft-ticketing
+spec:
+  serviceName: raft-ticketing
+  replicas: 3
+  podManagementPolicy: Parallel
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: raft-ticketing
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: raft-ticketing
+    spec:
+      terminationGracePeriodSeconds: 10
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: application
+          image: ghcr.io/xlong2/raft-ticketing:latest
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop: ["ALL"]
+          env:
+            - name: NODE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: PORT
+              value: "8080"
+            - name: INITIAL_TICKETS
+              value: "100"
+            - name: PEERS
+              value: >-
+                raft-ticketing-0=http://raft-ticketing-0.raft-ticketing:8080,
+                raft-ticketing-1=http://raft-ticketing-1.raft-ticketing:8080,
+                raft-ticketing-2=http://raft-ticketing-2.raft-ticketing:8080
+          ports:
+            - name: http
+              containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 2
+            periodSeconds: 3
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: http
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
