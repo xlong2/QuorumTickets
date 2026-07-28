@@ -25,10 +25,10 @@ jobs:
         run: sh ./mvnw --batch-mode verify
 
       - name: Build container
-        run: docker build --tag raft-ticketing:ci .
+        run: docker build --tag quorum-tickets:ci .
 
       - name: Upload runnable JAR
         uses: actions/upload-artifact@v4
         with:
-          name: raft-ticketing
-          path: target/raft-ticketing.jar
+          name: quorum-tickets
+          path: target/quorum-tickets.jar

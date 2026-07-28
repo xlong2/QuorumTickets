@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: raft-ticketing
+  name: quorum-tickets
   labels:
-    app.kubernetes.io/name: raft-ticketing
+    app.kubernetes.io/name: quorum-tickets
 spec:
   clusterIP: None
   publishNotReadyAddresses: true
   selector:
-    app.kubernetes.io/name: raft-ticketing
+    app.kubernetes.io/name: quorum-tickets
   ports:
     - name: http
       port: 8080
@@ -17,18 +17,18 @@ spec:
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  name: raft-ticketing
+  name: quorum-tickets
 spec:
-  serviceName: raft-ticketing
+  serviceName: quorum-tickets
   replicas: 3
   podManagementPolicy: Parallel
   selector:
     matchLabels:
-      app.kubernetes.io/name: raft-ticketing
+      app.kubernetes.io/name: quorum-tickets
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: raft-ticketing
+        app.kubernetes.io/name: quorum-tickets
     spec:
       terminationGracePeriodSeconds: 10
       securityContext:
@@ -37,7 +37,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: application
-          image: ghcr.io/xlong2/raft-ticketing:latest
+          image: ghcr.io/xlong2/quorum-tickets:latest
           imagePullPolicy: IfNotPresent
           securityContext:
             allowPrivilegeEscalation: false
@@ -55,9 +55,9 @@ spec:
               value: "100"
             - name: PEERS
               value: >-
-                raft-ticketing-0=http://raft-ticketing-0.raft-ticketing:8080,
-                raft-ticketing-1=http://raft-ticketing-1.raft-ticketing:8080,
-                raft-ticketing-2=http://raft-ticketing-2.raft-ticketing:8080
+                quorum-tickets-0=http://quorum-tickets-0.quorum-tickets:8080,
+                quorum-tickets-1=http://quorum-tickets-1.quorum-tickets:8080,
+                quorum-tickets-2=http://quorum-tickets-2.quorum-tickets:8080
           ports:
             - name: http
               containerPort: 8080

@@ -1,4 +1,4 @@
-# Raft Ticketing System
+# QuorumTickets
 
 [![CI](https://github.com/xlong2/CS647/actions/workflows/ci.yml/badge.svg)](https://github.com/xlong2/CS647/actions/workflows/ci.yml)
 
@@ -177,7 +177,7 @@ First, build the application and run its tests:
 sh ./mvnw verify
 ```
 
-The build creates `target/raft-ticketing.jar` and a JaCoCo coverage report in
+The build creates `target/quorum-tickets.jar` and a JaCoCo coverage report in
 `target/site/jacoco`.
 
 ### Run a single node
@@ -185,7 +185,7 @@ The build creates `target/raft-ticketing.jar` and a JaCoCo coverage report in
 ```bash
 NODE_ID=node-0 \
 PEERS=node-0=http://localhost:8080 \
-java -jar target/raft-ticketing.jar
+java -jar target/quorum-tickets.jar
 ```
 
 After the node elects itself leader, inspect it and buy five tickets:

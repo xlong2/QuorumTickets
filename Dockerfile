@@ -11,7 +11,7 @@ FROM eclipse-temurin:17-jre-jammy
 RUN groupadd --system application \
     && useradd --system --gid application --home-dir /app application
 WORKDIR /app
-COPY --from=build --chown=application:application /workspace/target/raft-ticketing.jar /app/app.jar
+COPY --from=build --chown=application:application /workspace/target/quorum-tickets.jar /app/app.jar
 
 USER application
 EXPOSE 8080
