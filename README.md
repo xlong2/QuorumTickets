@@ -25,9 +25,9 @@ recover without overselling its inventory.
 > This is an educational portfolio project, not a production consensus library. Its
 > deliberately small scope keeps the safety rules readable and deterministic in tests.
 
-## From CS647 lessons to a working service
+## From coursework to a working service
 
-The project grew out of four CS647 assignments. Each assignment answered a question
+The project grew out of four distributed-systems assignments. Each answered a question
 raised by the one before it and became a layer of the final system.
 
 ### Chapter 1 — How do distributed processes reason about order?
@@ -267,5 +267,5 @@ engineering work rather than production-readiness claims. See
 ## License and attribution
 
 The active implementation was created for this portfolio rebuild and is available under
-the MIT License. The repository began as CS647 distributed-systems coursework in 2019;
+the MIT License. The repository began as distributed-systems coursework in 2019;
 historical commits may retain their original third-party notices.
