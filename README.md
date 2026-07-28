@@ -1,6 +1,6 @@
 # QuorumTickets
 
-[![CI](https://github.com/xlong2/CS647/actions/workflows/ci.yml/badge.svg)](https://github.com/xlong2/CS647/actions/workflows/ci.yml)
+[![CI](https://github.com/xlong2/QuorumTickets/actions/workflows/ci.yml/badge.svg)](https://github.com/xlong2/QuorumTickets/actions/workflows/ci.yml)
 
 ## The problem: three servers, one ticket count
 
@@ -82,13 +82,13 @@ coursework evidence to the current implementation in more detail.
 
 The portfolio implementation is new, but the ideas behind it are not retroactively
 dated. Git commit
-[`56f8f12`](https://github.com/xlong2/CS647/commit/56f8f1254a71e73ddd5e35edd3818fbc2662399a),
+[`56f8f12`](https://github.com/xlong2/QuorumTickets/commit/56f8f1254a71e73ddd5e35edd3818fbc2662399a),
 authored on July 5, 2019, preserves the original coursework source. A later
-[`1dc1f53`](https://github.com/xlong2/CS647/commit/1dc1f5386c7a14818783ed37407a0fb984959f9e) revision from August 25,
+[`1dc1f53`](https://github.com/xlong2/QuorumTickets/commit/1dc1f5386c7a14818783ed37407a0fb984959f9e) revision from August 25,
 2019 includes the Kubernetes coursework updates.
 
 **Browse the original implementation:** the
-[`coursework-2019`](https://github.com/xlong2/CS647/tree/coursework-2019) branch points
+[`coursework-2019`](https://github.com/xlong2/QuorumTickets/tree/coursework-2019) branch points
 directly to the August 25, 2019 snapshot. It is not a copy added during the portfolio
 rebuild, so its commit and file history retain the original 2019 authorship dates.
 
@@ -96,10 +96,10 @@ These historical files show the path from the first experiments to the current d
 
 | Original coursework evidence | What it explored | Portfolio evolution |
 |---|---|---|
-| [`LamportClock.java`](https://github.com/xlong2/CS647/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw1/lamport-akka/src/main/java/com/example/LamportClock.java) and [`ResourceActor.java`](https://github.com/xlong2/CS647/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw1/lamport-akka/src/main/java/com/example/ResourceActor.java) | Logical time and ordering distributed resource requests | Small, thread-safe `LogicalClock` with focused tests |
-| [`NodeOnFsm.java`](https://github.com/xlong2/CS647/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw2/cs647%20HW2%20%20Xiyao%20Long/src/main/java/sample/fsm/NodeOnFsm.java) | Raft roles and transitions expressed as an Akka finite-state machine | Framework-independent `RaftNode` with deterministic protocol tests |
-| [`StateMachine.java`](https://github.com/xlong2/CS647/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw3/cs647%20HW3%20%20Xiyao%20Long/src/main/java/sample/fsm/StateMachine.java) | Applying replicated commands to ticket inventory | `TicketStateMachine` with overselling and exactly-once invariants |
-| [`akka-workers.yaml`](https://github.com/xlong2/CS647/blob/1dc1f5386c7a14818783ed37407a0fb984959f9e/hw4/kubernetes/akka-workers.yaml) | Running distributed actors as Kubernetes workers | One documented three-replica StatefulSet with stable identities and health probes |
+| [`LamportClock.java`](https://github.com/xlong2/QuorumTickets/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw1/lamport-akka/src/main/java/com/example/LamportClock.java) and [`ResourceActor.java`](https://github.com/xlong2/QuorumTickets/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw1/lamport-akka/src/main/java/com/example/ResourceActor.java) | Logical time and ordering distributed resource requests | Small, thread-safe `LogicalClock` with focused tests |
+| [`NodeOnFsm.java`](https://github.com/xlong2/QuorumTickets/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw2/cs647%20HW2%20%20Xiyao%20Long/src/main/java/sample/fsm/NodeOnFsm.java) | Raft roles and transitions expressed as an Akka finite-state machine | Framework-independent `RaftNode` with deterministic protocol tests |
+| [`StateMachine.java`](https://github.com/xlong2/QuorumTickets/blob/56f8f1254a71e73ddd5e35edd3818fbc2662399a/hw3/cs647%20HW3%20%20Xiyao%20Long/src/main/java/sample/fsm/StateMachine.java) | Applying replicated commands to ticket inventory | `TicketStateMachine` with overselling and exactly-once invariants |
+| [`akka-workers.yaml`](https://github.com/xlong2/QuorumTickets/blob/1dc1f5386c7a14818783ed37407a0fb984959f9e/hw4/kubernetes/akka-workers.yaml) | Running distributed actors as Kubernetes workers | One documented three-replica StatefulSet with stable identities and health probes |
 
 The original files remain in Git history instead of the active source tree, keeping the
 project build focused while preserving a directly inspectable record of its 2019
