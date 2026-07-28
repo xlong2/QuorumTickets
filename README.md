@@ -87,6 +87,11 @@ authored on July 5, 2019, preserves the original coursework source. A later
 [`1dc1f53`](https://github.com/xlong2/CS647/commit/1dc1f5386c7a14818783ed37407a0fb984959f9e) revision from August 25,
 2019 includes the Kubernetes coursework updates.
 
+**Browse the original implementation:** the
+[`coursework-2019`](https://github.com/xlong2/CS647/tree/coursework-2019) branch points
+directly to the August 25, 2019 snapshot. It is not a copy added during the portfolio
+rebuild, so its commit and file history retain the original 2019 authorship dates.
+
 These historical files show the path from the first experiments to the current design:
 
 | Original coursework evidence | What it explored | Portfolio evolution |
