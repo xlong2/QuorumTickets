@@ -13,7 +13,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.release>17</maven.compiler.release>
-        <jackson.version>2.20.1</jackson.version>
+        <jackson.version>2.21.7</jackson.version>
         <junit.version>5.14.1</junit.version>
     </properties>
 
